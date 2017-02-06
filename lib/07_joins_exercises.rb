@@ -154,7 +154,7 @@ def prolific_actors
       on actors.id = castings.actor_id
     WHERE
       castings.ord = 1
-    GROUP By
+    GROUP BY
       actors.name
     HAVING
       COUNT(*) >= 15
