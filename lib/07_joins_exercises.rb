@@ -109,16 +109,10 @@ def travoltas_busiest_years
       movies
     JOIN castings
       ON movies.id = castings.movie_id
+    JOIN actors
+      ON actors.id = castings.actor_id
     WHERE
-      castings.ord = 1 AND
-      castings.actor_id = (
-        SELECT
-          id
-        FROM
-          actors
-        WHERE
-          name = 'John Travolta'
-        )
+      actors.name = 'John Travolta'
     GROUP BY
       yr
     HAVING
