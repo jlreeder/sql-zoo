@@ -134,15 +134,10 @@ def andrews_films_and_leads
           movie_id
         FROM
           castings
+        JOIN actors
+          ON actors.id = castings.actor_id
         WHERE
-          actor_id = (
-            SELECT
-              id
-            FROM
-              actors
-            WHERE
-              name = 'Julie Andrews'
-            )
+          actors.name = 'Julie Andrews'
         )
   SQL
 end
