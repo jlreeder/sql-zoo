@@ -46,15 +46,10 @@ def ford_films
       movies
     JOIN castings
       ON movies.id = castings.movie_id
+    JOIN actors
+      ON actors.id = castings.actor_id
     WHERE
-      actor_id = (
-        SELECT
-          id
-        FROM
-          actors
-        WHERE
-          name = 'Harrison Ford'
-        )
+      name = 'Harrison Ford'
   SQL
 end
 
