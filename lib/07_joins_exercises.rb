@@ -135,7 +135,14 @@ def andrews_films_and_leads
         FROM
           castings
         WHERE
-          actor_id = 812
+          actor_id = (
+            SELECT
+              id
+            FROM
+              actors
+            WHERE
+              name = 'Julie Andrews'
+            )
         )
   SQL
 end
