@@ -77,7 +77,7 @@ def connecting_routes
     FROM
       routes
     WHERE
-      stop_id = 149 OR stop_id = 53
+      stop_id IN (149, 53)
     GROUP BY
       company, num
     HAVING
