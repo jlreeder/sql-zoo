@@ -136,10 +136,9 @@ def teachers_and_divisions_two
   execute(<<-SQL)
     SELECT
       name,
-      CASE dept_id
-        WHEN 1 THEN 'Sci'
-        WHEN 2 THEN 'Sci'
-        WHEN 3 THEN 'Art'
+      CASE
+        WHEN dept_id IN(1, 2) THEN 'Sci'
+        WHEN dept_id = 3 THEN 'Art'
         ELSE 'None'
       END
     FROM
